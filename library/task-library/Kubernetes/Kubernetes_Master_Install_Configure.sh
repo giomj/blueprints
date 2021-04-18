@@ -4,6 +4,10 @@ set -ex
 # - * - Variables and constants.
 KUBE_CLUSTER_NAME="@@{KUBE_CLUSTER_NAME}@@"
 KUBE_VERSION="@@{calm_array_VERSION[0]}@@"
+<<<<<<< HEAD
+=======
+CNI_VERSION="@@{CNI_VERSION}@@"
+>>>>>>> 08a8b248fce60d7bb5595c1e42460e0968f382f1
 INTERNAL_IP="@@{address}@@"
 MASTER_IPS="@@{all_master_ip_address}@@"
 WORKER_IPS="@@{all_worker_ip_address}@@"
@@ -24,7 +28,13 @@ HTTP_METHOD="http"
 
 SSL_ON="${SSL_ON:-no}"
 
+<<<<<<< HEAD
 sudo easy_install netaddr
+=======
+sudo easy_install pip
+pip install netaddr
+
+>>>>>>> 08a8b248fce60d7bb5595c1e42460e0968f382f1
 FIRST_IP_SERVICE_SUBNET=$(python -c "from netaddr import * ; print IPNetwork('${SERVICE_SUBNET}')[1]")
 CONTROLLER_COUNT=$(echo "@@{calm_array_address}@@" | tr ',' '\n' | wc -l)
 
@@ -51,7 +61,11 @@ sudo yum update -y --quiet
 
 curl -C - -L -O --retry 6 --retry-max-time 60 --retry-delay 60 --silent --show-error https://storage.googleapis.com/kubernetes-release/release/${KUBE_VERSION}/bin/linux/amd64/kubelet
 curl -C - -L -O --retry 6 --retry-max-time 60 --retry-delay 60 --silent --show-error https://storage.googleapis.com/kubernetes-release/release/${KUBE_VERSION}/bin/linux/amd64/kubectl
+<<<<<<< HEAD
 curl -C - -L -O --retry 6 --retry-max-time 60 --retry-delay 60 --silent --show-error https://github.com/containernetworking/plugins/releases/download/v0.8.5/cni-plugins-linux-amd64-v0.8.5.tgz
+=======
+curl -C - -L -O --retry 6 --retry-max-time 60 --retry-delay 60 --silent --show-error https://github.com/containernetworking/plugins/releases/download/${CNI_VERSION}/cni-plugins-linux-amd64-${CNI_VERSION}.tgz
+>>>>>>> 08a8b248fce60d7bb5595c1e42460e0968f382f1
 
 chmod +x kubelet kubectl 
 sudo mv kubelet /usr/bin/kubelet

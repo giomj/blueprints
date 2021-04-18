@@ -22,7 +22,10 @@ import requests
 
 headers = {'content-type': 'application/json', 'Accept': 'application/json'}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 08a8b248fce60d7bb5595c1e42460e0968f382f1
 def help_parser():
     parser = argparse.ArgumentParser(
         description='Arguments for seeding task library')
@@ -105,7 +108,11 @@ def seed_task_item(base_url, auth, project_name, script_path):
         script_content = scriptf.read()
 
     script_name = ntpath.basename(script_path)
+<<<<<<< HEAD
     item_name = os.path.splitext(script_name.replace("_", ' '))[0]
+=======
+    item_name = os.path.splitext(script_name.replace(" ", '_'))[0]
+>>>>>>> 08a8b248fce60d7bb5595c1e42460e0968f382f1
     script_ext = os.path.splitext(script_name)[1].replace('.', '')
     project_uuid = get_project_uuid(base_url, auth, project_name)
     if 'ps1' in script_ext:

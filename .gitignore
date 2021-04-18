@@ -3,3 +3,7 @@ github.code-workspace
 task-library/fortigate/FortiOS 6.0.6 REST API Reference.pdf
 .vscode/settings.json
 venv/
+<<<<<<< HEAD
+=======
+task-library/guest_customization/sysprep/AHV/
+>>>>>>> 08a8b248fce60d7bb5595c1e42460e0968f382f1
